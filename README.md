@@ -1,4 +1,4 @@
-#DevOps Assignment: 3-Tier Web Application Using Docker + Kubernetes
+# DevOps Assignment: 3-Tier Web Application Using Docker + Kubernetes
 
 
 The goal is to build and deploy a 3-tier web application using Docker and Kubernetes, demonstrating core DevOps concepts like containerization, orchestration. This solution uses AWS EC2 for hosting a lightweight K3s Kubernetes cluster and Helm/Kubectl for deployment.3
