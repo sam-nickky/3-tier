@@ -62,7 +62,8 @@ Navigate to the k8s/ directory for deployment manifests:
 Access the application via:
 
 Frontend: http://<EC2_PUBLIC_IP>:30080
-![Screenshot (17)](https://github.com/user-attachments/assets/d0d675be-4a34-4e7e-ad1f-daeaa5b8f32f)
+![Screenshot (30)](https://github.com/user-attachments/assets/4c785c30-4289-4d2f-aea5-85a94e64161f)
+
 
 Backend API: http://<EC2_PUBLIC_IP>:30001/products
 ![Screenshot (25)](https://github.com/user-attachments/assets/98ce2c5c-8c83-4151-ad37-b3f644575afb)
