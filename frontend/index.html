@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Product List</title>
   <style>
-    /* Basic styling */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -55,24 +54,20 @@
       try {
         console.log('Starting to fetch products...');
 
-        // const response = await fetch('/api/items'); 
         const response = await fetch("http://35.179.147.83:30001/items");
-        // Log detailed response information
+
         console.log('Raw response object:', response);
         console.log('Status:', response.status);
         console.log('Status Text:', response.statusText);
         console.log('Response OK:', response.ok);
 
-        // Check if the response was successful (status code 200-299)
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
-        // Parse the response body as JSON
         const data = await response.json();
         console.log('Parsed data:', data);
 
-        // Verify that data contains the expected products array
         if (data.products) {
           displayProducts(data.products);
         } else {
@@ -81,7 +76,6 @@
             '<p style="color:red;">No products available.</p>';
         }
       } catch (error) {
-        // Log any errors that occur during the fetch
         console.error('Error fetching products:', error);
         document.getElementById('products').innerHTML =
           '<p style="color:red;">Error loading products.</p>';
@@ -100,4 +94,18 @@
           <div class="product-info">
             <h2>${product.name}</h2>
             <p>${product.description}</p>
-            <p class="price">$${
+            <p class="price">$${product.price}</p>
+          </div>
+          <div class="product-actions">
+            <button>Add to Cart</button>
+          </div>
+        `;
+        productsContainer.appendChild(productDiv);
+      });
+    }
+
+    // Call fetch on page load
+    window.onload = fetchProducts;
+  </script>
+</body>
+</html>
