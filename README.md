@@ -36,42 +36,36 @@ curl -sfL https://get.k3s.io | sh
 
 # Directory Structure
 
-root@ip-172-31-40-219:~/3-tier# tree
-.
-├── backend
-│   ├── Dockerfile
-│   ├── app.py
-│   └── requirements.txt
-├── database
-│   ├── Dockerfile
-│   ├── cm.yml
-│   └── init.sql
-├── frontend
-│   ├── Dockerfile
-│   ├── index.html
-│   └── nginx.conf
-└── k8s
-    ├── backend-deploy.yaml
-    ├── db-deploy.yaml
-    ├── deploy_db.yaml
-    └── frontend-deploy.yaml
-
-5 directories, 13 files
 ![app](https://github.com/user-attachments/assets/5a293a74-507e-450f-880b-4be5dd0b86cc)
 
 # Docker Image Build & Push
 Images were built and pushed to Docker Hub:
 
+    # Frontend
+    docker build -t <dockerhub-username>/frontend:latest frontend
+    docker push <dockerhub-username>/frontend:latest
+
+    # Backend
+    docker build -t <dockerhub-username>/backend:latest backend
+    docker push <dockerhub-username>/backend:latest
+
+    # DB
+    docker build -t <dockerhub-username>/db:latest db
+    docker push <dockerhub-username>/db:latest
+
 # Kubernetes Deployment
 Navigate to the k8s/ directory for deployment manifests:
 
-
+    kubectl apply -f k8s/
 
 #  Accessing the Application
 Access the application via:
 
 Frontend: http://<EC2_PUBLIC_IP>:30080
+![Screenshot (17)](https://github.com/user-attachments/assets/d0d675be-4a34-4e7e-ad1f-daeaa5b8f32f)
 
 Backend API: http://<EC2_PUBLIC_IP>:30001/products
+![Screenshot (25)](https://github.com/user-attachments/assets/98ce2c5c-8c83-4151-ad37-b3f644575afb)
+
 
 MySQL DB: Accessible within cluster or via kubectl port-forward
