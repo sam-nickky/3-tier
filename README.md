@@ -19,6 +19,7 @@ Infrastructure: AWS EC2
 IaC Tools: Kubernetes YAML Manifests (can be extended to Helm)
 
 # Infrastructure Setup
+
 Launched AWS EC2 Instance
 
 OS: Ubuntu 22.04
@@ -32,6 +33,7 @@ sudo apt update && sudo apt install -y docker.io
 sudo systemctl enable docker && sudo systemctl start docker
 
 # Install K3s 
+
 curl -sfL https://get.k3s.io | sh 
 
 # Directory Structure
@@ -39,6 +41,7 @@ curl -sfL https://get.k3s.io | sh
 ![app](https://github.com/user-attachments/assets/5a293a74-507e-450f-880b-4be5dd0b86cc)
 
 # Docker Image Build & Push
+
 Images were built and pushed to Docker Hub:
 
     # Frontend
@@ -54,11 +57,13 @@ Images were built and pushed to Docker Hub:
     docker push <dockerhub-username>/db:latest
 
 # Kubernetes Deployment
+
 Navigate to the k8s/ directory for deployment manifests:
 
     kubectl apply -f k8s/
 
 #  Accessing the Application
+
 Access the application via:
 
 Frontend: http://<EC2_PUBLIC_IP>:30080
