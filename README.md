@@ -3,7 +3,7 @@
 
 The goal is to build and deploy a 3-tier web application using Docker and Kubernetes, demonstrating core DevOps concepts like containerization, orchestration. This solution uses AWS EC2 for hosting a lightweight K3s Kubernetes cluster and Helm/Kubectl for deployment.3
 
-# Stack Used
+# Stack Used:
 Frontend: Nginx serving a static HTML file
 
 Backend: Python Flask application (Simple Shopping API)
@@ -18,7 +18,7 @@ Infrastructure: AWS EC2
 
 IaC Tools: Kubernetes YAML Manifests (can be extended to Helm)
 
-# Infrastructure Setup
+# Infrastructure Setup:
 
 Launched AWS EC2 Instance
 
@@ -28,19 +28,19 @@ Opened security group ports: 30080, 30001, 80, 3306, 5000
 
 #Installed Dependencies on EC2
 
-# Install Docker
+# Install Docker:
 sudo apt update && sudo apt install -y docker.io
 sudo systemctl enable docker && sudo systemctl start docker
 
-# Install K3s 
+# Install K3s :
 
 curl -sfL https://get.k3s.io | sh 
 
-# Directory Structure
+# Directory Structure:
 
 ![app](https://github.com/user-attachments/assets/5a293a74-507e-450f-880b-4be5dd0b86cc)
 
-# Docker Image Build & Push
+# Docker Image Build & Push:
 
 Images were built and pushed to Docker Hub:
 
@@ -56,13 +56,13 @@ Images were built and pushed to Docker Hub:
     docker build -t <dockerhub-username>/db:latest db
     docker push <dockerhub-username>/db:latest
 
-# Kubernetes Deployment
+# Kubernetes Deployment:
 
 Navigate to the k8s/ directory for deployment manifests:
 
     kubectl apply -f k8s/
 
-#  Accessing the Application
+#  Accessing the Application:
 
 Access the application via:
 
